@@ -1,0 +1,113 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    --background: 38 33% 95%;
+    --foreground: 215 50% 12%;
+    --card: 38 30% 97%;
+    --card-foreground: 215 50% 12%;
+    --popover: 38 30% 97%;
+    --popover-foreground: 215 50% 12%;
+    --primary: 215 50% 24%;
+    --primary-foreground: 38 33% 95%;
+    --secondary: 38 25% 88%;
+    --secondary-foreground: 215 50% 12%;
+    --muted: 38 20% 90%;
+    --muted-foreground: 215 20% 45%;
+    --accent: 36 55% 50%;
+    --accent-foreground: 0 0% 100%;
+    --destructive: 0 72% 51%;
+    --destructive-foreground: 0 0% 98%;
+    --border: 38 20% 82%;
+    --input: 38 20% 82%;
+    --ring: 215 50% 24%;
+    --radius: 0.25rem;
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border;
+    box-sizing: border-box;
+  }
+  html {
+    scroll-behavior: smooth;
+  }
+  body {
+    margin: 0;
+    background-color: #F5F0E8;
+    color: #1E3A5F;
+    font-family: 'DM Sans', system-ui, sans-serif;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+  }
+  h1, h2, h3, h4, h5 {
+    font-family: 'Cormorant Garamond', Georgia, serif;
+  }
+  a {
+    text-decoration: none;
+    color: inherit;
+  }
+}
+
+/* Dashed treasure-map path animation */
+.path-draw {
+  stroke-dasharray: 12 8;
+  stroke-dashoffset: 0;
+  animation: march 20s linear infinite;
+}
+
+@keyframes march {
+  to { stroke-dashoffset: -200; }
+}
+
+/* Hero overlay */
+.hero-overlay {
+  background: linear-gradient(
+    135deg,
+    rgba(15, 31, 51, 0.75) 0%,
+    rgba(15, 31, 51, 0.48) 50%,
+    rgba(15, 31, 51, 0.18) 100%
+  );
+}
+
+/* Journey card hover */
+.journey-card {
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+.journey-card:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 12px 32px rgba(30, 58, 95, 0.12);
+}
+
+/* Scroll reveal */
+.reveal {
+  opacity: 0;
+  transform: translateY(28px);
+  transition: opacity 0.7s ease, transform 0.7s ease;
+}
+.reveal.visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* Navbar scroll transparency */
+.navbar-transparent {
+  background-color: transparent;
+  box-shadow: none;
+}
+.navbar-solid {
+  background-color: #0F1F33;
+  box-shadow: 0 2px 20px rgba(15, 31, 51, 0.25);
+}
+
+/* Mobile menu */
+.mobile-menu-enter {
+  animation: slideDown 0.25s ease-out forwards;
+}
+@keyframes slideDown {
+  from { opacity: 0; transform: translateY(-8px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
